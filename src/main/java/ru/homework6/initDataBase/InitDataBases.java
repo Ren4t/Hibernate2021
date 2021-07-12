@@ -1,4 +1,4 @@
-package ru.homework5;
+package ru.homework6.initDataBase;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,8 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
-public class PrepareData {
-
+public class InitDataBases {
     public static void forcePrepareData() {
         SessionFactory factory = new Configuration()
                 .configure("configs/homework5/hibernate.cfg.xml")
