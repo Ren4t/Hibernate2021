@@ -2,37 +2,14 @@ package ru.homework5;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
 public class ProductDao {
     private static SessionFactory factory;
 
-    public static void init() {
-        PrepareData.forcePrepareData();
-        factory = new Configuration()
-                .configure("configs/homework5/hibernate.cfg.xml")
-                .buildSessionFactory();
-    }
-
-    public static void main(String[] args) {
-        try {
-            init();
-            System.out.println(findById(1l));
-            deleteById(1l);
-            System.out.println(findAll());
-            Product product = new Product("bread",35);
-            saveOrUpdate(product);
-            System.out.println(findAll());
-            product = new Product("maul",105);
-            saveOrUpdate(product);
-            System.out.println(findAll());
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            shutdown();
-        }
+    public ProductDao(SessionFactory factory) {
+        this.factory = factory;
     }
 
     public static Product findById(Long id){
@@ -71,7 +48,4 @@ public class ProductDao {
         }
     }
 
-    public static void shutdown() {
-        factory.close();
-    }
 }
