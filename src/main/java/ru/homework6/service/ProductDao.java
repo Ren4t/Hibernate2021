@@ -1,10 +1,13 @@
-package ru.homework5;
+package ru.homework6.service;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import ru.homework5.Product;
 
 import java.util.List;
-
+// черновик
 public class ProductDao {
     private static SessionFactory factory;
 
